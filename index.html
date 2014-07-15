@@ -11,10 +11,30 @@
 		<div class="product row" ng-repeat="product in store.products">
 			<h1>{{product.name}}</h1>
 			<em class="pull-right">{{product.price | currency}}</em>
-			<p>{{product.description}}</p>
 			<img ng-src="{{product.images[0].full}}"/>
 			<button ng-show="product.canPurchase"> Add to Cart </button>
+			<section ng-init="tab = 1" ng-controller="PanelController as panel">
+				<ul class="nav nav-pills">
+					<li ng-class="{ active:panel.isSelected(1)}"> <a ng-click="panel.selectTab(1)" href="">Description</a> </li>
+					<li ng-class="{ active:panel.isSelected(2)}"> <a ng-click="panel.selectTab(2)" href="">Specification</a> </li>
+					<li ng-class="{ active:panel.isSelected(3)}"> <a ng-click="panel.selectTab(3)" href="">Reviews</a> </li>
+				</ul>
+			<div class="panel" ng-show="panel.isSelected(1)">
+				<h4>Description</h4>
+				<p><blockquote>{{product.description}}</blockquote></p>
+			</div>
+			<div class="panel" ng-show="panel.isSelected(2)">
+				<h4>Specifications</h4>
+				<p><blockquote>None yet</blockquote></p>
+			</div>
+			<div class="panel" ng-show="panel.isSelected(3)">
+				<h4>Reviews</h4>
+				<p><blockquote>None yet</blockquote></p>
+			</div>
+			</section>
 		</div>
+
+
 
 
 
