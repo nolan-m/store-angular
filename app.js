@@ -21,6 +21,14 @@
     };
 	});
 
+	app.controller('ReviewController', function(){
+		this.review = {};
+		this.addReview = function(product){
+			product.reviews.push(this.review);
+			this.review = {};
+		}
+	})
+
 	var gems= [
 		{
 			name: 'Dodecahedron',
@@ -30,6 +38,12 @@
 			soldOut: false,
 			images: [
 				{full: 'img/red.jpg'
+				}
+			],
+			reviews: [
+				{ stars: 5,
+					body: "Great Gem",
+					author: "gemlover@email.com"
 				}
 			]
 		},
@@ -41,6 +55,12 @@
 			soldOut: false,
 			images: [
 				{full: 'img/green.jpg'
+				}
+			],
+			reviews: [
+				{ stars: 4,
+					body: "Pretty good",
+					author: "gemlover@email.com"
 				}
 			]
 		}
