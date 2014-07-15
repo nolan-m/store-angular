@@ -5,13 +5,14 @@
 	<title>Angular Store!</title>
 
 </head>
-<body ng-controller="StoreController as store">
+<body class="container" ng-controller="StoreController as store">
 	<p>{{"Welcome" + " to " + "Angular"}}
 
-		<div ng-repeat="product in store.products">
+		<div class="product row" ng-repeat="product in store.products">
 			<h1>{{product.name}}</h1>
-			<h2>${{product.price}}</h2>
+			<em class="pull-right">{{product.price | currency}}</em>
 			<p>{{product.description}}</p>
+			<img ng-src="{{product.images[0].full}}"/>
 			<button ng-show="product.canPurchase"> Add to Cart </button>
 		</div>
 
